@@ -12,6 +12,3 @@ The == operator insternally converts values to the same type before comparing.
 
 What is the data type returned by the == and === operators?
 Boolean
-
-
-**practice break and continue
