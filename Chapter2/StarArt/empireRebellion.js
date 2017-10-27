@@ -20,13 +20,16 @@ function drawRebellionFleet(num){
 
 
 function drawEpicBattle(){
-    for (var i = 1; i <= 4; i++){
-        for (var j = 1; j <= 10; j++){
-            drawEmpireFleet(15);
+    var x = Math.random()*5 + 5;
+    var y = Math.random()*10 + 5;
+
+    for (var i = 1; i <= x; i++){
+        for (var j = 1; j <= y; j++){
+            drawEmpireFleet(Math.random()*15);
         }
 
-        for (var k = 1; k <= 10; k++){
-            drawRebellionFleet(15);
+        for (var k = 1; k <= x; k++){
+            drawRebellionFleet(Math.random()*15);
         }
     }
 }

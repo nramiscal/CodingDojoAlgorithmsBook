@@ -1,6 +1,7 @@
 function clockHandAngles(seconds){
 
     var times = [
+    //  [timeUnit, # of secs in timeUnit, # of timeUnits per clockHand rotation]
         ["week", 604800, 1],
         ["day", 86400, 0.5],
         ["half day", 43200, 1],
@@ -17,10 +18,8 @@ function clockHandAngles(seconds){
     }
 
     for (key in angles){
-        if (key != "day"){
-            if (key != "half day"){
-                console.log(key + " hand: " + Math.floor(angles[key]) + " degrees");
-            }
+        if (key != "day" && key != "half day"){
+            console.log(key + " hand: " + Math.floor(angles[key]) + " degrees");
         }
     }
 
