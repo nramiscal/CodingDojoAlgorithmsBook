@@ -1,3 +1,5 @@
+// weekDayName() assumes the year is 2017
+// weekdayNum is a number between 1 and 7 inclusive
 function weekDayName(weekdayNum){
     switch(weekdayNum) {
     case 1:

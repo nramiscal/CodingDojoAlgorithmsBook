@@ -1,3 +1,5 @@
+// weekDayName2() assumes the year is 2017
+// weekdayNum is a number between 1 and 365 inclusive
 function weekDayName2(weekdayNum){
 
     var rem = weekdayNum % 7;

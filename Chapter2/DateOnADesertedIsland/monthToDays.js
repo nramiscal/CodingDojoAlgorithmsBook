@@ -1,9 +1,3 @@
-function monthName(monthNum){
-    var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-
-    return months[monthNum-1];
-}
-
 function monthToDays(monthNum){
 
     var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
@@ -36,11 +30,4 @@ function monthToDays(monthNum){
     }
 }
 
-function getNumDaysInMonth(monthNum){
-    if (monthNum < 1 || monthNum > 12){
-        return "Invalid month number."
-    }
-    console.log("There are " + monthToDays(monthNum) + " days in " + monthName(monthNum) );
-}
-
-getNumDaysInMonth(12)
+monthToDays(12)
