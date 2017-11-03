@@ -1,0 +1,58 @@
+1) What is the JavaScript Math library? What does it contain?
+
+JavaScript has grouped certain numerical functions and values into the Math library.  A library is a related set of functions and values that have been grouped together under a common name.
+
+
+2) Why aren't all those functions just included in JavaScript automatically?
+
+Traditionally, less common functions are separated into a library so they can be excluded from certain minimized versions of a language.
+
+
+3) If I call Math.random(), what will it return?
+
+Math.random() returns a randomly generated decimal number between 0 and 'almost-one'.
+
+
+4) What do the following functions do: Math.floor, Math.ceil, Math.trunc, Math.round?
+
+These four functions accept a decimal number and return an integer.  Given an integer, all leave it unchanged.
+
+Math.floor() is a pessimist
+(makes negatives more negative, positives less positive)
+
+Math.ceil() is an optimist
+(makes negatives less negative, positives more positive)
+
+Math.trunc() is a simplifier
+(drops any fraction, moving the number toward zero)
+
+Math.round() returns the value of a number rounded to the nearest integer
+From MDN web docs: "If the fractional portion of the argument is greater than 0.5, the argument is rounded to the integer with the next higher absolute value. If it is less than 0.5, the argument is rounded to the integer with the lower absolute value.  If the fractional portion is exactly 0.5, the argument is rounded to the next integer in the direction of +∞.  Note that this differs from many languages' round() functions, which often round this case to the next integer away from zero, instead (giving a different result in the case of negative numbers with a fractional part of exactly 0.5)."
+
+
+5) When do Math.floor and Math.trunc NOT return the same value?
+
+Math.floor() and Math.trunc() do not return the same value when given negative numbers. Math.trunc() will return a number closer to 0, whereas Math.floor() will return a more negative number (farther from 0).
+
+e.g.
+
+Math.floor(-2.7) == -3
+Math.trunc(-2.7) == -2
+
+Math.floor(-0.5) == -1
+Math.trunc(-0.5) == 0
+
+
+6) What is the % operator? When is it useful?
+
+The % (modulo) operator divides the first number by the second number and returns the remainder. It is also used for extracting digits or fractional values from a compound number.
+
+
+7) How do I make variables declared outside (right next to) a function visible inside it?
+
+Variables declared outside of a function are always visible inside it, but variables declared within a function are not visible outside it, due to the concept of scope.
+
+
+8) Why should I comment my code?  If I know what it does, isn't commenting just a waste of time?
+
+Comments are very useful for people reading your code (including the person who wrote it) because it helps explain the author's logic and intent. It saves the reader time trying to understand how the code works.
