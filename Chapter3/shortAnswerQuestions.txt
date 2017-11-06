@@ -1,0 +1,51 @@
+1. What is an array?
+An array is a data structure that contains a group of elements that are often the same data type, but do not have to be.  Arrays store multiple values that are accessed by specifying an index (offset from array front) in square brackets.  Arrays are zero-based: an array's first value is located at index 0.
+
+2. What types of values can be held in an array?
+Any type of value can be stored in an array.  They are not limited to one data type: one array can contain numbers, boolean, string, etc.
+
+3. What happens if you try to contain values of different data types in an array?
+Nothing.
+
+4. What is the index of the first element in an array?
+0
+
+5. What is the index of the last element in an array?
+array.length-1
+
+6. If you control an array, what is the easiest way to determine the number of values?
+array.length
+
+7. When would the above method not work well, and what must you do in that case?
+When adding a value to an array, use the push() function, or directly add the value to array's end (array[array.length]), or move another value there if you need the new value to be somewhere other than the array's end.  In other words, if you don't use push(), make sure that array[array.length] is the next index in the array to be populated, rather than a larger index.
+
+8. What are two ways to make an array one element longer?
+array.push()
+array.length++
+
+9. What are two ways to make an array two elements shorter?
+array.pop(), array.pop()
+array.length -= 2
+
+10. What is the upper limit on the number of values an array can hold?
+The maximum length of an array according to the ECMA-262 5th Edition specification is bound by an unsigned 32-bit integer due to the ToUint32 abstract operation, so the longest possible array could have 232-1 = 4,294,967,295 = 4.29 billion elements.
+
+11. When working with arrays, does working "in-place" really matter? If so, when and why?
+In computer science, an in-place algorithm is an algorithm which transforms input using no auxiliary data structure. However a small amount of extra storage space is allowed for auxiliary variables. The input is usually overwritten by the output as the algorithm executes. In-place algorithm updates input sequence only through replacement or swapping of elements. Since in-place algorithms usually overwrite their input with output, no additional space is needed.
+(https://en.wikipedia.org/wiki/In-place_algorithm)
+
+Working in-place is a good way to save space. An in-place algorithm will generally have O(1)O(1) space cost.  But be careful: an in-place algorithm can cause side effects. Your input is "destroyed" or "altered," which can affect code outside of your function. (https://www.interviewcake.com/concept/java/in-place)
+
+12. Which values are "falsey" in JavaScript, and what does "falsey" mean anyway?
+In JavaScript, most values are considered something and if converted to a boolean, equate to true.  Only six values are considered nothing:
+- false
+- 0
+- NaN
+- ""
+- null
+- undefined
+These six are considered "falsey", because when converted to a boolean, they equate to false. All other values are "truthy", including all functions, objects, non-0 numbers (e.g. -Infinity) and non-empty strings (e.g. "0" or "false").
+
+13. What does "passing by reference" mean?
+"Arrays are passed by reference.  This means that when an array is sent as an argument, a pointer is sent.  For this reason, even though parameters are always copies of the originals, with arrays (and all objects) a pointer is copied, resulting in caller and callee both having a copy of the same pointer.  Hence both are looking at the same location in memory, and both will reference the same array.  When we pass an array to another function, the array is passed "live" - changes the callee makes in that array are reflected when we return to the caller, regardless of whether the called function returns that array."
+(copied directly from the book)
