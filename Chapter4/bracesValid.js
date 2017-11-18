@@ -38,16 +38,16 @@ function bracesValid(str){
                 break;
         }
         if (parens < 0 || brace < 0 || bracket < 0){
-            console.log("too many closing characters");
+            console.log("premature closing symbol");
             return false; // 1
         }
     }
     if (parens != 0 || brace != 0 || bracket != 0){
-        console.log("too many opening character/s");
+        console.log("unclosed opening symbol/s");
         return false; // 2
     }
     else if (arr.length > 0){;
-        console.log("characters not matched in correct order");
+        console.log("symbols not in valid order");
         return false; // 3
     }
     else {
