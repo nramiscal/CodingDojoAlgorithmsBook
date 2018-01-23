@@ -1,13 +1,16 @@
 
 function betterThreesFives(start, end){
+    var sum = 0;
     for (var i = start; i <= end; i++){
         if (i % 3 == 0 && i % 5 == 0){
             continue;
         }
         else if (i % 3 == 0 || i % 5 == 0){
-            console.log(i);
+            sum += i;
         }
     }
+    console.log("Sum is " + sum);
+    return sum;
 }
 
-betterThreesFives(1,100)
+betterThreesFives(100,4000000)
