@@ -11,7 +11,8 @@ function sumToOneDigit(num){
         }
         return helper(sum);
     }
-    helper(num);
+
+    return helper(num);
 }
 
-sumToOneDigit(928)
+console.log(sumToOneDigit(7112124)) // returns 9
