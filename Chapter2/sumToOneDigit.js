@@ -1,6 +1,5 @@
 function sumToOneDigit(num){
 
-    function helper(num){
         if (num < 10){
             return num;
         }
@@ -9,10 +8,9 @@ function sumToOneDigit(num){
         for (var i = 0; i < str.length; i++){
             sum += Number(str[i]);
         }
-        return helper(sum);
-    }
 
-    return helper(num);
+        return sumToOneDigit(sum);
+
 }
 
-console.log(sumToOneDigit(7112124)) // returns 9
+console.log(sumToOneDigit(99))
