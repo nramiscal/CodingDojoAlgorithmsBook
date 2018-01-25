@@ -1,3 +1,5 @@
+// sumToOne recursively
+
 function sumToOneDigit(num){
 
         if (num < 10){
