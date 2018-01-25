@@ -1,4 +1,4 @@
-// sumToOne recursively
+// sumToOne recursively  
 
 function sumToOneDigit(num){
 
