@@ -20,15 +20,17 @@ function SLL(){
     }
 
     this.moveMinToFront = function(){
+
         // we will need two pointers: runner and minNode
         var runner = this.head;
+        var minNode;
+
         // minVal is needed to determine minNode
         // initialize it to the value of the first node
         var minVal = this.head.val;
-        var minNode;
 
-        // iterate through the entire list to find the minVal,
-        // and consequently the minNode
+
+        // iterate through the entire list to find the minVal, and consequently the minNode
         while(runner){
             if (runner.val < minVal){
                 minVal = runner.val;
@@ -41,6 +43,7 @@ function SLL(){
 
         // reset runner to start at the beginning of the list
         runner = this.head;
+
         // traverse to the node just before minNode
         while (runner.next !== minNode){
             runner = runner.next;
@@ -48,8 +51,10 @@ function SLL(){
 
         // break the link to minNode and reattach link to the node after
         runner.next = runner.next.next;
+
         // add minNode before this.head
         minNode.next = this.head;
+
         // reset this.head to point to the new start of the list
         this.head = minNode;
         return this;
