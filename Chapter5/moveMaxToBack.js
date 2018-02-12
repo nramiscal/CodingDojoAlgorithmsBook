@@ -19,47 +19,33 @@ function SLL(){
         return this;
     }
 
-    this.moveMaxToBack = function(){
+    this.moveMaxToBack2 = function(){
 
-        // we will need three pointers: runner, maxNode and lastNode
+        // traverse through list to find maxVal
+        // when found, mark maxNode and beforeMaxNode
+        // remove maxNode from list
+        // runner is at end, add maxNode after runner
+        // make maxNode end of list by setting .next to null
+
         var runner = this.head;
-        var maxNode;
-        var lastNode;
-
-        // maxVal is needed to determine maxNode
-        // initialize it to the value of the first node
         var maxVal = this.head.val;
+        var maxNode;
+        var beforeMaxNode;
 
-
-        // iterate through the entire list to find the maxVal, and consequently the maxNode
-        while(runner.next){
-            if (runner.val > maxVal){
-                maxVal = runner.val;
-                maxNode = runner;
+        while (runner.next){
+            if (runner.next.val > maxVal){
+                maxVal = runner.next.val;
+                maxNode = runner.next;
+                beforeMaxNode = runner;
             }
             runner = runner.next;
         }
+        // runner is now at end of list
 
-        // now we have a pointer to maxNode so we can break any links surrounding it, as long as we do not move this pointer
-
-        // runner is at end of list. mark this node as lastNode
-        lastNode = runner;
-
-        // reset runner to start at the beginning of the list
-        runner = this.head;
-
-        // traverse to the node just before maxNode
-        while (runner.next !== maxNode){
-            runner = runner.next;
-        }
-
-        // break the link to maxNode and reattach link to the node after
-        runner.next = runner.next.next;
-
-        // add maxNode to the end of the list
-        lastNode.next = maxNode;
-
-        // reset maxNode's this.next to reflect its new status as end of list
+        // remove maxNode from list
+        beforeMaxNode.next = maxNode.next;
+        // add maxNode to end of list
+        runner.next = maxNode;
         maxNode.next = null;
         return this;
 
@@ -80,5 +66,5 @@ function SLL(){
 var list = new SLL();
 list.add(4).add(3).add(7).add(1).add(5)
 list.printAsArray(); // [ 4, 3, 7, 1, 5 ]
-list.moveMaxToBack();
+list.moveMaxToBack2();
 list.printAsArray(); // [ 1, 4, 3, 7, 5 ]
