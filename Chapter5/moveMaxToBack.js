@@ -19,7 +19,7 @@ function SLL(){
         return this;
     }
 
-    this.moveMaxToBack2 = function(){
+    this.moveMaxToBack = function(){
 
         // traverse through list to find maxVal
         // when found, mark maxNode and beforeMaxNode
@@ -66,5 +66,5 @@ function SLL(){
 var list = new SLL();
 list.add(4).add(3).add(7).add(1).add(5)
 list.printAsArray(); // [ 4, 3, 7, 1, 5 ]
-list.moveMaxToBack2();
+list.moveMaxToBack();
 list.printAsArray(); // [ 1, 4, 3, 7, 5 ]

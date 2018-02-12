@@ -19,7 +19,7 @@ function SLL(){
         return this;
     }
 
-    this.moveMinToFront2 = function(){
+    this.moveMinToFront = function(){
 
         var runner = this.head;
         var minVal = this.head.val;
@@ -61,5 +61,5 @@ function SLL(){
 var list = new SLL();
 list.add(4).add(3).add(7).add(1).add(5)
 list.printAsArray(); // [ 4, 3, 7, 1, 5 ]
-list.moveMinToFront2();
+list.moveMinToFront();
 list.printAsArray(); // [ 1, 4, 3, 7, 5 ]
