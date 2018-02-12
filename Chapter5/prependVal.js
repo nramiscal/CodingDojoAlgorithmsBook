@@ -23,34 +23,40 @@ function SLL(){
     // or at the end if no node contains before
     this.prependVal = function(val, before){
 
+        // create newNode containing val
         // run through the list to find before
         // when found, mark node as beforeNode
-        // run through the list again stopping one before beforeNode
-        // create newNode containing val
+        // if beforeNode was never set, then before was never found
+        // runner is at end of list, so add newNode to the end using runner
+        // otherwise, run through the list again stopping one before beforeNode
         // point runner.next to newNode
         // point newNode.next to beforeNode
         // return this
 
         var runner = this.head;
-        var beforeNode;
         var newNode = new Node(val);
 
         while(runner.next){
             if (runner.val == before){
-                beforeNode = runner;
+                var beforeNode = runner;
             }
             runner = runner.next;
         }
 
-        runner = this.head;
-        while(runner.next !== beforeNode){
-            runner = runner.next;
+        if (!beforeNode){
+            runner.next = newNode;
+            return this;
         }
+        else {
+            runner = this.head;
+            while(runner.next !== beforeNode){
+                runner = runner.next;
+            }
 
-        runner.next = newNode;
-        newNode.next = beforeNode;
-        return this;
-
+            runner.next = newNode;
+            newNode.next = beforeNode;
+            return this;
+        }
     }
 
     this.printAsArray = function(){
@@ -68,5 +74,5 @@ function SLL(){
 var sList = new SLL();
 sList.add(1).add(2).add(3).add(4).add(5);
 sList.printAsArray();
-sList.prependVal(100,4);
+sList.prependVal(100,50);
 sList.printAsArray();
