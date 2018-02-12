@@ -1,13 +1,17 @@
-function fibonacci(index){
-    var arr = [0,1];
+function fibonacci(num){
 
-    for (var i = 1; i < index; i++){
-        var temp = arr[0];
-        arr[0] = arr[1];
-        arr[1] = arr[1] + temp;
+    let sum = 1;
+    let i = 0;
+    let j = 1;
 
+    while (num > 1){
+        sum = i + j;
+        i = j;
+        j = sum;
+        num--;
     }
-    return arr[1];
+
+    return sum;
 }
 
-fibonacci(7) // returns 13
+console.log(fibonacci(7)) // 13
