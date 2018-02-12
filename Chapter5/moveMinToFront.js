@@ -31,7 +31,7 @@ function SLL(){
 
 
         // iterate through the entire list to find the minVal, and consequently the minNode
-        while(runner){
+        while(runner.next){
             if (runner.val < minVal){
                 minVal = runner.val;
                 minNode = runner;
