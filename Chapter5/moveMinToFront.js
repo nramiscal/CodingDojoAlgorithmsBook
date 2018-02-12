@@ -19,43 +19,28 @@ function SLL(){
         return this;
     }
 
-    this.moveMinToFront = function(){
+    this.moveMinToFront2 = function(){
 
-        // we will need two pointers: runner and minNode
         var runner = this.head;
-        var minNode;
-
-        // minVal is needed to determine minNode
-        // initialize it to the value of the first node
         var minVal = this.head.val;
+        var minNode;
+        var beforeMinNode;
 
-
-        // iterate through the entire list to find the minVal, and consequently the minNode
+        // find node with minVal and node just before
         while(runner.next){
-            if (runner.val < minVal){
-                minVal = runner.val;
-                minNode = runner;
+            if (runner.next.val < minVal){
+                minVal = runner.next.val;
+                beforeMinNode = runner;
+                minNode = runner.next;
             }
             runner = runner.next;
         }
 
-        // now we have a pointer to minNode so we can break any links surrounding it, as long as we do not move this pointer
-
-        // reset runner to start at the beginning of the list
-        runner = this.head;
-
-        // traverse to the node just before minNode
-        while (runner.next !== minNode){
-            runner = runner.next;
-        }
-
-        // break the link to minNode and reattach link to the node after
-        runner.next = runner.next.next;
-
-        // add minNode before this.head
+        // remove minNode from list
+        beforeMinNode.next = minNode.next;
+        // add minNode to beginning of list
         minNode.next = this.head;
-
-        // reset this.head to point to the new start of the list
+        // reset head to reflect new start of list
         this.head = minNode;
         return this;
 
@@ -76,5 +61,5 @@ function SLL(){
 var list = new SLL();
 list.add(4).add(3).add(7).add(1).add(5)
 list.printAsArray(); // [ 4, 3, 7, 1, 5 ]
-list.moveMinToFront();
+list.moveMinToFront2();
 list.printAsArray(); // [ 1, 4, 3, 7, 5 ]
