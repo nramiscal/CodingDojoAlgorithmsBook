@@ -21,7 +21,7 @@ function SLL(){
 
     this.moveMaxToBack = function(){
 
-        // we will need three pointers: runner and maxNode
+        // we will need three pointers: runner, maxNode and lastNode
         var runner = this.head;
         var maxNode;
         var lastNode;
