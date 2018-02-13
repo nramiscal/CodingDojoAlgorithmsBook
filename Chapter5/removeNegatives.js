@@ -21,9 +21,13 @@ function SLL(){
 
     this.removeNegatives = function(){
 
+        while (this.head.val < 0){
+            this.head = this.head.next;
+        }
+
         var runner = this.head;
 
-        while (runner.next){
+        while (runner){
             if (runner.next.val < 0){
                 runner.next = runner.next.next;
             }
@@ -46,7 +50,7 @@ function SLL(){
 }
 
 var sList = new SLL();
-sList.add(1).add(2).add(3).add(-4).add(5);
+sList.add(-1).add(-2).add(3).add(-4).add(5).add(-6);
 sList.printAsArray();
 sList.removeNegatives();
 sList.printAsArray();
