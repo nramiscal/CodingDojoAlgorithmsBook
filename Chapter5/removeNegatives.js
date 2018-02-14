@@ -27,11 +27,13 @@ function SLL(){
 
         var runner = this.head;
 
-        while (runner){
+        while (runner.next){
             if (runner.next.val < 0){
                 runner.next = runner.next.next;
             }
-            runner = runner.next;
+            else {
+                runner = runner.next;
+            }
         }
 
         return this;
@@ -50,7 +52,7 @@ function SLL(){
 }
 
 var sList = new SLL();
-sList.add(-1).add(-2).add(3).add(-4).add(5).add(-6);
+sList.add(-1).add(-2).add(3).add(-4).add(-5).add(-6).add(7);
 sList.printAsArray();
 sList.removeNegatives();
 sList.printAsArray();
