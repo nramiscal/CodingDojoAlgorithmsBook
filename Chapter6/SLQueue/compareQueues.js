@@ -23,7 +23,7 @@ function SLQueue() {
     }
 
 
-    // this function checks to see if two lists have the same values and sequence of values
+    // this function checks to see if two lists contain the same values and sequence of values - it does not compare by reference.
     this.compareQueues = function(list){
         var runner1 = this.head;
         var runner2 = list.head;
