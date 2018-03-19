@@ -30,9 +30,10 @@ function ArrStack(){
 
     // remove and print the top val
     this.pop = function(){
-        console.log(`The value at the top of the stack was ${arr[arr.length-1]}`);
+        var temp = arr[arr.length-1];
         arr.length--;
-        return this;
+        console.log(`Removed value from top:`);
+        return temp;
     }
 
     this.displayStack = function(){
@@ -48,5 +49,5 @@ function ArrStack(){
 
 var s = new ArrStack();
 s.push(1).push(2).push(3).push(4).push(5).displayStack();
-s.pop().displayStack();
-s.pop().displayStack();
+console.log(s.pop());
+console.log(s.pop());

@@ -7,7 +7,7 @@ function ArrStack(){
         return this;
     }
 
-    // print (not remove) the stack’s top value
+    // return (not remove) the stack’s top value
     this.top = function(){
         if (arr.length < 1){
             console.log(`The stack is empty.`);
@@ -15,7 +15,7 @@ function ArrStack(){
         else {
             console.log(`The top of the stack is ${arr[arr.length-1]}`);
         }
-        return this;
+        return arr[arr.length-1];
     }
 
     this.displayStack = function(){

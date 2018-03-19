@@ -7,13 +7,13 @@ function ArrStack(){
         return this;
     }
 
-    // print whether the stack is empty
+    // return whether the stack is empty
     this.isEmpty = function(){
         if (arr.length < 1){
-            console.log(`True. The stack is empty.`);
+            return true;
         }
         else {
-            console.log(`False. The stack is not empty.`);
+            return false;
         }
     }
 
@@ -29,7 +29,7 @@ function ArrStack(){
 }
 
 var s = new ArrStack();
+console.log(s.isEmpty());
 s.displayStack();
-s.isEmpty();
 s.push(1).push(2).push(3).push(4).push(5).displayStack();
-s.isEmpty();
+console.log(s.isEmpty());

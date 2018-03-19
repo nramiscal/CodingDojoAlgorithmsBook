@@ -7,7 +7,7 @@ function ArrStack(){
         return this;
     }
 
-    // print (not remove) the stack’s top value
+    // return (not remove) the stack’s top value
     this.top = function(){
         if (arr.length < 1){
             console.log(`The stack is empty.`);
@@ -15,24 +15,25 @@ function ArrStack(){
         else {
             console.log(`The top of the stack is ${arr[arr.length-1]}`);
         }
-        return this;
+        return arr[arr.length-1];
     }
 
-    // print whether the stack is empty
+    // return whether the stack is empty
     this.isEmpty = function(){
         if (arr.length < 1){
-            console.log(`True. The stack is empty.`);
+            return true;
         }
         else {
-            console.log(`False. The stack is not empty.`);
+            return false;
         }
     }
 
-    // remove and print the top val
+    // remove and return the top val
     this.pop = function(){
-        console.log(`The value at the top of the stack was ${arr[arr.length-1]}`);
+        var temp = arr[arr.length-1];
         arr.length--;
-        return this;
+        console.log(`Removed value from top:`);
+        return temp;
     }
 
     // print whether given value is within the stack
