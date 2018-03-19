@@ -22,6 +22,31 @@ function SLQueue() {
         return this;
     }
 
+    // remove and return value at front of queue
+    this.dequeue = function(){
+        var temp = head.val;
+        head = head.next;
+        console.log(`Removed ${temp} from front of queue`);
+        return temp;
+    }
+
+    // return the value at front of our queue, without removing it
+    this.front = function(){
+        return head.val;
+    }
+
+    // return whether given value is found within our queue
+    this.contains = function(value){
+        runner = head;
+        while (runner){
+            if (runner.val == value){
+                return true;
+            }
+            runner = runner.next;
+        }
+        return false;
+    }
+
     // check if queue contains no values
     this.isEmpty = function(){
         if (!head){
@@ -31,12 +56,23 @@ function SLQueue() {
         }
     }
 
+    // returns the number of values in our queue
+    this.size = function(){
+        var runner = head;
+        var count = 0;
+        while (runner){
+            count++;
+            runner = runner.next;
+        }
+        return count;
+    }
+
     this.displayQueue = function(){
-        if (!head){
+        if (!this.head){
             console.log(`This queue is empty.`);
         }
         else {
-            var runner = head;
+            var runner = this.head;
             var str = "";
             while(runner){
                 str += runner.val + " -> ";
@@ -48,8 +84,3 @@ function SLQueue() {
         return this;
     }
 }
-
-var q = new SLQueue();
-console.log(q.isEmpty());
-q.enqueue(1).enqueue(2).enqueue(3).enqueue(4).displayQueue();
-console.log(q.isEmpty());

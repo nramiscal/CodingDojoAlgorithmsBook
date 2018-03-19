@@ -7,39 +7,38 @@ function SLQueue() {
     var head= null;
     var tail = null;
 
-    // add val to back of queue
+    // add the given value to end of our queue
     this.enqueue = function(value){
         var newNode = new Node(value);
 
-        if (!this.head){
-            this.head = newNode;
-            this.tail = newNode;
+        if (!head){
+            head = newNode;
+            tail = newNode;
         }
         else {
-            this.tail.next = newNode;
-            this.tail = this.tail.next;
+            tail.next = newNode;
+            tail = tail.next;
         }
         return this;
     }
 
-    // print the size/length of the queue
+    // returns the number of values in our queue
     this.size = function(){
-        var runner = this.head;
+        var runner = head;
         var count = 0;
         while (runner){
             count++;
             runner = runner.next;
         }
-        console.log(`Size of queue is ${count}`);
-        return this;
+        return count;
     }
 
     this.displayQueue = function(){
-        if (!this.head){
+        if (!head){
             console.log(`This queue is empty.`);
         }
         else {
-            var runner = this.head;
+            var runner = head;
             var str = "";
             while(runner){
                 str += runner.val + " -> ";
@@ -54,6 +53,6 @@ function SLQueue() {
 
 var q = new SLQueue();
 q.displayQueue();
-q.size();
+console.log(q.size());
 q.enqueue(1).enqueue(2).enqueue(3).enqueue(4).displayQueue();
-q.size();
+console.log(q.size());

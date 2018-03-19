@@ -7,35 +7,35 @@ function SLQueue() {
     var head= null;
     var tail = null;
 
-    // add val to back of queue
+    // add the given value to end of our queue
     this.enqueue = function(value){
         var newNode = new Node(value);
 
-        if (!this.head){
-            this.head = newNode;
-            this.tail = newNode;
+        if (!head){
+            head = newNode;
+            tail = newNode;
         }
         else {
-            this.tail.next = newNode;
-            this.tail = this.tail.next;
+            tail.next = newNode;
+            tail = tail.next;
         }
         return this;
     }
 
-    // remove and print val from front of queue
+    // remove and return value at front of queue
     this.dequeue = function(){
-        var temp = this.head.val;
-        this.head = this.head.next;
+        var temp = head.val;
+        head = head.next;
         console.log(`Removed ${temp} from front of queue`);
-        return this;
+        return temp;
     }
 
     this.displayQueue = function(){
-        if (!this.head){
+        if (!head){
             console.log(`This queue is empty.`);
         }
         else {
-            var runner = this.head;
+            var runner = head;
             var str = "";
             while(runner){
                 str += runner.val + " -> ";
@@ -50,4 +50,5 @@ function SLQueue() {
 
 var q = new SLQueue();
 q.enqueue(1).enqueue(2).enqueue(3).enqueue(4).displayQueue();
-q.dequeue().displayQueue();
+q.dequeue()
+q.displayQueue();

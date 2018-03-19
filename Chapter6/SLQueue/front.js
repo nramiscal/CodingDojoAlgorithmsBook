@@ -7,41 +7,40 @@ function SLQueue() {
     var head= null;
     var tail = null;
 
-    // add val to back of queue
+    // add the given value to end of our queue
     this.enqueue = function(value){
         var newNode = new Node(value);
 
-        if (!this.head){
-            this.head = newNode;
-            this.tail = newNode;
+        if (!head){
+            head = newNode;
+            tail = newNode;
         }
         else {
-            this.tail.next = newNode;
-            this.tail = this.tail.next;
+            tail.next = newNode;
+            tail = tail.next;
         }
         return this;
     }
 
-    // remove and print val from front of queue
+    // remove and return value at front of queue
     this.dequeue = function(){
-        var temp = this.head.val;
-        this.head = this.head.next;
+        var temp = head.val;
+        head = head.next;
         console.log(`Removed ${temp} from front of queue`);
-        return this;
+        return temp;
     }
 
-    // return (not remove) value at front of queue`
+    // return the value at front of our queue, without removing it
     this.front = function(){
-        console.log(`Value at front of queue is ${this.head.val}`);
-        return this;
+        return head.val;
     }
 
     this.displayQueue = function(){
-        if (!this.head){
+        if (!head){
             console.log(`This queue is empty.`);
         }
         else {
-            var runner = this.head;
+            var runner = head;
             var str = "";
             while(runner){
                 str += runner.val + " -> ";
@@ -55,7 +54,8 @@ function SLQueue() {
 }
 
 var q = new SLQueue();
-q.enqueue(1).enqueue(2).enqueue(3).enqueue(4).displayQueue();
-q.front();
-q.dequeue().displayQueue();
-q.front();
+q.enqueue(1).enqueue(2).enqueue(3).enqueue(4).displayQueue(); // 1 -> 2 -> 3 -> 4 -> null
+console.log(q.front()); // 1
+console.log(q.dequeue()); // 1
+q.displayQueue(); // 2 -> 3 -> 4 -> null
+console.log(q.front()); // 2

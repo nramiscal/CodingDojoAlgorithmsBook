@@ -7,27 +7,27 @@ function SLQueue() {
     var head= null;
     var tail = null;
 
-    // add val to back of queue
+    // add the given value to end of our queue
     this.enqueue = function(value){
         var newNode = new Node(value);
 
-        if (!this.head){
-            this.head = newNode;
-            this.tail = newNode;
+        if (!head){
+            head = newNode;
+            tail = newNode;
         }
         else {
-            this.tail.next = newNode;
-            this.tail = this.tail.next;
+            tail.next = newNode;
+            tail = tail.next;
         }
         return this;
     }
 
     this.displayQueue = function(){
-        if (!this.head){
+        if (!head){
             console.log(`This queue is empty.`);
         }
         else {
-            var runner = this.head;
+            var runner = head;
             var str = "";
             while(runner){
                 str += runner.val + " -> ";
