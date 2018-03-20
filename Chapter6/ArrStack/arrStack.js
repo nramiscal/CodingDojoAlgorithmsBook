@@ -9,12 +9,6 @@ function ArrStack(){
 
     // return (not remove) the stack’s top value
     this.top = function(){
-        if (arr.length < 1){
-            console.log(`The stack is empty.`);
-        }
-        else {
-            console.log(`The top of the stack is ${arr[arr.length-1]}`);
-        }
         return arr[arr.length-1];
     }
 
@@ -41,17 +35,17 @@ function ArrStack(){
         for (let i = arr.length-1; i >= 0; i--){
             if (arr[i]===value){
                 console.log(`The stack contains the value ${value}.`);
-                return this;
+                return true;
             }
         }
         console.log(`The value ${value} is not in the stack.`);
-        return this;
+        return false;
     }
 
     // print the number of stacked values
     this.size = function(){
-        console.log(`The size of the stack is ${arr.length}`);
-        return this;
+        console.log(`The size of the stack is:`);
+        return arr.length;
     }
 
     this.displayStack = function(){

@@ -68,11 +68,11 @@ function SLQueue() {
     }
 
     this.displayQueue = function(){
-        if (!this.head){
+        if (!head){
             console.log(`This queue is empty.`);
         }
         else {
-            var runner = this.head;
+            var runner = head;
             var str = "";
             while(runner){
                 str += runner.val + " -> ";

@@ -16,8 +16,8 @@ function ArrStack(){
 
     // print the number of stacked values
     this.size = function(){
-        console.log(`The size of the stack is ${arr.length}`);
-        return this;
+        console.log(`The size of the stack is:`);
+        return arr.length;
     }
 
     this.displayStack = function(){
@@ -32,6 +32,6 @@ function ArrStack(){
 }
 
 var s = new ArrStack();
-s.size();
-s.push(1).push(2).push(3).push(4).push(5).displayStack();
-s.size();
+console.log(s.size()); // 0
+s.push(1).push(2).push(3).push(4).push(5);
+console.log(s.size()); // 5

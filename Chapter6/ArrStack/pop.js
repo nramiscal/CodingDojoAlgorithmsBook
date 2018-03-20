@@ -51,3 +51,4 @@ var s = new ArrStack();
 s.push(1).push(2).push(3).push(4).push(5).displayStack();
 console.log(s.pop());
 console.log(s.pop());
+s.displayStack();

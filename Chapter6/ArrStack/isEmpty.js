@@ -29,7 +29,6 @@ function ArrStack(){
 }
 
 var s = new ArrStack();
-console.log(s.isEmpty());
-s.displayStack();
-s.push(1).push(2).push(3).push(4).push(5).displayStack();
-console.log(s.isEmpty());
+console.log(s.isEmpty()); // true
+s.push(1).push(2).push(3).push(4).push(5);
+console.log(s.isEmpty()); // false

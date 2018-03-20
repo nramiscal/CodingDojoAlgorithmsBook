@@ -9,12 +9,6 @@ function ArrStack(){
 
     // return (not remove) the stack’s top value
     this.top = function(){
-        if (arr.length < 1){
-            console.log(`The stack is empty.`);
-        }
-        else {
-            console.log(`The top of the stack is ${arr[arr.length-1]}`);
-        }
         return arr[arr.length-1];
     }
 
@@ -30,6 +24,6 @@ function ArrStack(){
 }
 
 var s = new ArrStack();
-s.top();
-s.push(1).push(2).push(3).push(4).push(5).displayStack();
-s.top();
+console.log(s.top()); // undefined
+s.push(1).push(2).push(3).push(4).push(5);
+console.log(s.top()); // 5

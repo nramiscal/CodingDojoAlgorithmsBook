@@ -11,12 +11,10 @@ function ArrStack(){
     this.contains = function(value){
         for (let i = arr.length-1; i >= 0; i--){
             if (arr[i]===value){
-                console.log(`The stack contains the value ${value}.`);
-                return this;
+                return true;
             }
         }
-        console.log(`The value ${value} is not in the stack.`);
-        return this;
+        return false;
     }
 
     this.displayStack = function(){
@@ -32,5 +30,5 @@ function ArrStack(){
 
 var s = new ArrStack();
 s.push(1).push(2).push(3).push(4).push(5).displayStack();
-s.contains(1);
-s.contains(100);
+console.log(s.contains(1)); // true
+console.log(s.contains(100)); // false
