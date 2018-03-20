@@ -85,33 +85,32 @@ function SLQueue() {
     }
 }
 
-
 // Given two SLQueue objects, create a standalone function that returns whether they are equal. Queues are equal only if they have equal elements in identical order. Allocate no other object, and return the queues in their original condition upon exit.
-function compareSLQueues(list1, list2){
-    if (list1.size() !== list2.size()){
-        return `These lists are not the same.`;
+function compareSLQueues(queue1, queue2){
+    if (queue1.size() !== queue2.size()){
+        return `These queues are not the same.`;
     }
     var temp1;
     var temp2;
-    for (var i = 1; i <= list1.size(); i++){
-        // console.log(list1.front());
-        // console.log(list2.front());
-        temp1 = list1.dequeue();
-        temp2 = list2.dequeue();
+    for (var i = 1; i <= queue1.size(); i++){
+        // console.log(queue1.front());
+        // console.log(queue2.front());
+        temp1 = queue1.dequeue();
+        temp2 = queue2.dequeue();
         if (temp1 !== temp2){
-            return `These lists are not the same.`;
+            return `These queues are not the same.`;
         }
-        list1.enqueue(temp1);
-        list2.enqueue(temp2);
+        queue1.enqueue(temp1);
+        queue2.enqueue(temp2);
     }
-    return `These lists are the same! :)`
+    return `These queues are the same! :)`
 }
 
 var q1 = new SLQueue();
 var q2 = new SLQueue();
 q1.enqueue(1).enqueue(2).enqueue(3).enqueue(4).displayQueue();
-console.log(compareSLQueues(q1,q2)); // These lists are not the same.
+console.log(compareSLQueues(q1,q2)); // These queues are not the same.
 q2.enqueue(1).enqueue(2).enqueue(3).enqueue(4).displayQueue();
-console.log(compareSLQueues(q1,q2)); // These lists are the same! :)
+console.log(compareSLQueues(q1,q2)); // These queues are the same! :)
 q2.enqueue(5).displayQueue();
-console.log(compareSLQueues(q1,q2)); // These lists are not the same.
+console.log(compareSLQueues(q1,q2)); // These queues are not the same.
