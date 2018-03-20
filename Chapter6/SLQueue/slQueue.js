@@ -81,6 +81,5 @@ function SLQueue() {
             str += "null";
             console.log(str);
         }
-        return this;
     }
 }
