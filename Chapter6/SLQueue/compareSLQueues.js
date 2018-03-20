@@ -30,32 +30,6 @@ function SLQueue() {
         return temp;
     }
 
-    // return the value at front of our queue, without removing it
-    this.front = function(){
-        return head.val;
-    }
-
-    // return whether given value is found within our queue
-    this.contains = function(value){
-        runner = head;
-        while (runner){
-            if (runner.val == value){
-                return true;
-            }
-            runner = runner.next;
-        }
-        return false;
-    }
-
-    // check if queue contains no values
-    this.isEmpty = function(){
-        if (!head){
-            return true;
-        } else {
-            return false;
-        }
-    }
-
     // returns the number of values in our queue
     this.size = function(){
         var runner = head;
