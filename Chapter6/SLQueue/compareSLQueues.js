@@ -66,25 +66,28 @@ function compareSLQueues(queue1, queue2){
     }
     var temp1;
     var temp2;
+    var flag = true;
     for (var i = 1; i <= queue1.size(); i++){
-        // console.log(queue1.front());
-        // console.log(queue2.front());
         temp1 = queue1.dequeue();
         temp2 = queue2.dequeue();
         if (temp1 !== temp2){
-            return `These queues are not the same.`;
+            flag = false;
         }
         queue1.enqueue(temp1);
         queue2.enqueue(temp2);
     }
-    return `These queues are the same! :)`
+    if (flag == false){
+        return `These queues are not the same.`
+    }
+    else{
+        return `These queues are the same! :)`
+    }
 }
 
 var q1 = new SLQueue();
 var q2 = new SLQueue();
 q1.enqueue(1).enqueue(2).enqueue(3).enqueue(4).displayQueue();
+q2.enqueue(1).enqueue(20).enqueue(3).enqueue(4).displayQueue();
 console.log(compareSLQueues(q1,q2)); // These queues are not the same.
-q2.enqueue(1).enqueue(2).enqueue(3).enqueue(4).displayQueue();
-console.log(compareSLQueues(q1,q2)); // These queues are the same! :)
-q2.enqueue(5).displayQueue();
-console.log(compareSLQueues(q1,q2)); // These queues are not the same.
+q1.displayQueue();
+q2.displayQueue();
