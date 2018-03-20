@@ -5,39 +5,39 @@ function Node(value){
 
 function SLStack(){
 
-    this.head = null;
+    top = null;
 
     // adds a value to our stack
     this.push = function(value){
         var newNode = new Node(value);
-        newNode.next = this.head;
-        this.head = newNode;
+        newNode.next = top;
+        top = newNode;
         return this;
     }
 
     // remove and return the top value
     this.pop = function(){
-        var temp = this.head.val;
+        var temp = top.val;
         console.log(`Removing ${temp} from the top`);
-        this.head = this.head.next;
+        top = top.next;
         return temp;
     }
 
     // return (not remove) the stack’s top value
     this.top = function(){
-        if (!this.head){
+        if (!top){
             console.log(`The stack is empty.`);
             return;
         }
         else {
             console.log(`The value at the top of the stack is:`);
-            return this.head.val;
+            return top.val;
         }
     }
 
     // return whether the stack is empty
     this.isEmpty = function(){
-        if (!this.head){
+        if (!top){
             return true;
         }
         else {
@@ -47,12 +47,12 @@ function SLStack(){
 
     // return whether a given value is within the stack
     this.contains = function(value){
-        if (!this.head){
+        if (!top){
             console.log(`The stack is empty.`);
             return false;
         }
         else {
-            var runner = this.head;
+            var runner = top;
             while (runner){
                 if (runner.val === value){
                     console.log(`Value ${value} is in the stack.`);
@@ -68,7 +68,7 @@ function SLStack(){
     // return the number of stacked values
     this.size = function(){
         var count = 0;
-        var runner = this.head;
+        var runner = top;
         while(runner){
             count++;
             runner = runner.next;
@@ -78,10 +78,10 @@ function SLStack(){
     }
 
     this.displayStack = function(){
-        if (!this.head){
+        if (!top){
             console.log(`The stack is empty.`);
         }
-        runner = this.head;
+        runner = top;
         while(runner){
             console.log(runner.val);
             runner = runner.next;

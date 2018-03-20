@@ -5,20 +5,20 @@ function Node(value){
 
 function SLStack(){
 
-    this.head = null;
+    var top = null;
 
     // adds a value to our stack
     this.push = function(value){
         var newNode = new Node(value);
-        newNode.next = this.head;
-        this.head = newNode;
+        newNode.next = top;
+        top = newNode;
         return this;
     }
 
     // return the number of stacked values
     this.size = function(){
         var count = 0;
-        var runner = this.head;
+        var runner = top;
         while(runner){
             count++;
             runner = runner.next;
@@ -28,10 +28,10 @@ function SLStack(){
     }
 
     this.displayStack = function(){
-        if (!this.head){
+        if (!top){
             console.log(`The stack is empty.`);
         }
-        runner = this.head;
+        runner = top;
         while(runner){
             console.log(runner.val);
             runner = runner.next;
