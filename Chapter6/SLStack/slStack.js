@@ -5,7 +5,7 @@ function Node(value){
 
 function SLStack(){
 
-    top = null;
+    var top = null;
 
     // adds a value to our stack
     this.push = function(value){
