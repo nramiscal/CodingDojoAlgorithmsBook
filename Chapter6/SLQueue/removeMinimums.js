@@ -98,6 +98,7 @@ function removeMinimums(queue){
 }
 
 var q = new SLQueue();
-q.displayQueue(); // 1 -> 0 -> 3 -> 4 -> 0 -> null
+q.displayQueue();
 q.enqueue(1).enqueue(0).enqueue(3).enqueue(4).enqueue(0).displayQueue();
+// 1 -> 0 -> 3 -> 4 -> 0 -> null
 removeMinimums(q); // 1 -> 3 -> 4 -> null
