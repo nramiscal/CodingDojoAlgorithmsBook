@@ -80,15 +80,13 @@ function compareStacks(stack1,stack2){
             return `These stacks are the same! :)`
         }
     }
-
 }
 
 var s1 = new SLStack();
 var s2 = new SLStack();
 s1.push(1).push(2).push(3).push(4).push(5);
-s2.push(1).push(20).push(3).push(4).push(5);
-console.log(compareStacks(s1,s2));
-console.log(`Stack 1:`);
-s1.displayStack();
-console.log(`Stack 2:`);
-s2.displayStack();
+s2.push(1).push(2).push(3).push(4).push(5);
+console.log(compareStacks(s1,s2)); // These stacks are the same! :)
+s1.push(6);
+s2.push(60);
+console.log(compareStacks(s1,s2)); // These stacks are not the same.
