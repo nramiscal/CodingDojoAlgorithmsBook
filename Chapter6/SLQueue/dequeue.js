@@ -24,10 +24,16 @@ function SLQueue() {
 
     // remove and return value at front of queue
     this.dequeue = function(){
-        var temp = head.val;
-        head = head.next;
-        console.log(`Removed ${temp} from front of queue`);
-        return temp;
+        if (!head){
+            console.log(`Queue is empty. Nothing to dequeue.`);
+            return;
+        }
+        else {
+            var temp = head.val;
+            head = head.next;
+            console.log(`Removed ${temp} from front of queue`);
+            return temp;
+        }
     }
 
     this.displayQueue = function(){
@@ -49,6 +55,7 @@ function SLQueue() {
 }
 
 var q = new SLQueue();
+q.dequeue();
 q.enqueue(1).enqueue(2).enqueue(3).enqueue(4).displayQueue();
 q.dequeue()
 q.displayQueue();
