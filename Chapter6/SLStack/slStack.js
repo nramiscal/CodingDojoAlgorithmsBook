@@ -17,10 +17,16 @@ function SLStack(){
 
     // remove and return the top value
     this.pop = function(){
-        var temp = top.val;
-        console.log(`Removing ${temp} from the top`);
-        top = top.next;
-        return temp;
+        if (!top){
+            console.log(`Stack is empty. Nothing to pop.`);
+            return;
+        }
+        else {
+            var temp = top.val;
+            console.log(`Removing ${temp} from the top`);
+            top = top.next;
+            return temp;
+        }
     }
 
     // return (not remove) the stack’s top value

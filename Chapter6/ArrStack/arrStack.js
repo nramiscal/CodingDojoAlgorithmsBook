@@ -22,8 +22,12 @@ function ArrStack(){
         }
     }
 
-    // remove and return the top val
+    // remove and print the top val
     this.pop = function(){
+        if (arr.length < 1){
+            console.log(`The stack is empty. Nothing to pop.`);
+            return;
+        }
         var temp = arr[arr.length-1];
         arr.length--;
         console.log(`Removed value from top:`);

@@ -17,10 +17,16 @@ function SLStack(){
 
     // remove and return the top value
     this.pop = function(){
-        var temp = top.val;
-        console.log(`Removing ${temp} from the top`);
-        top = top.next;
-        return temp;
+        if (!top){
+            console.log(`Stack is empty. Nothing to pop.`);
+            return;
+        }
+        else {
+            var temp = top.val;
+            console.log(`Removing ${temp} from the top`);
+            top = top.next;
+            return temp;
+        }
     }
 
     this.displayStack = function(){
@@ -38,7 +44,7 @@ function SLStack(){
 }
 
 var stack = new SLStack();
-stack.push(1).push(2).push(3).push(4).push(5).displayStack();
 stack.pop();
+stack.push(1).push(2).push(3).push(4).push(5).displayStack();
 stack.pop();
 stack.displayStack();
