@@ -38,7 +38,13 @@ function SLQueue() {
 
     // return the value at front of our queue, without removing it
     this.front = function(){
-        return head.val;
+        if (!head){
+            console.log(`Queue is empty. Nothing in front.`);
+            return;
+        }
+        else {
+            return head.val;
+        }
     }
 
     this.displayQueue = function(){
@@ -60,6 +66,7 @@ function SLQueue() {
 }
 
 var q = new SLQueue();
+q.front();
 q.enqueue(1).enqueue(2).enqueue(3).enqueue(4).displayQueue(); // 1 -> 2 -> 3 -> 4 -> null
 console.log(q.front()); // 1
 console.log(q.dequeue()); // 1

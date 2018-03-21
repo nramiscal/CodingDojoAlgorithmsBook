@@ -38,7 +38,13 @@ function SLQueue() {
 
     // return the value at front of our queue, without removing it
     this.front = function(){
-        return head.val;
+        if (!head){
+            console.log(`Queue is empty. Nothing in front.`);
+            return;
+        }
+        else {
+            return head.val;
+        }
     }
 
     // returns the number of values in our queue
