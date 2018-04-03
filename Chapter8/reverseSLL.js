@@ -30,7 +30,7 @@ function SLL(){
             current = follow;
             follow = follow.next;
         }
-        current.next = prev;
+        current.next = prev; // to connect last node to previous node so we don't lose the entire list
         this.head.next = null;
         this.head = current;
         return this;
