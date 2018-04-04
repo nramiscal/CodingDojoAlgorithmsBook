@@ -1,6 +1,6 @@
-// Array: Flatten
 // Flatten a given array, eliminating nested & empty arrays.
 // Third: make your algorithm both in-place and stable. Do you need a return value? No.
+
 
 function flatten3(arr){
     for (var i = 0; i < arr.length; i++){

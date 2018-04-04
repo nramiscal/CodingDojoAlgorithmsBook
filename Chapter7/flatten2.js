@@ -1,6 +1,7 @@
-// Array: Flatten
 // Flatten a given array, eliminating nested & empty arrays.
-// Second: work ‘in-place’ in the given array (do not create another). Alter order if needed. Ex.: [1,[2,3],4,[]] could become [1,3,4,2].
+// Second: work ‘in-place’ in the given array (do not create another).
+// Alter order if needed. Ex.: [1,[2,3],4,[]] could become [1,3,4,2].
+
 
 function flatten2(arr){
     // use a for loop with i = 0 instead of for-in so can decrement i in case of empty arrays
