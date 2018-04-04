@@ -16,9 +16,6 @@
 //             [43, 32]]
 //
 // return true.
-//
-// Second: Return location of first match found ( [-1,-1] if no match). In example above, return [2,1] .
-
 
 
 function matrixSearch(matrix, sub){
