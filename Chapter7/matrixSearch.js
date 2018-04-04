@@ -26,10 +26,12 @@ function matrixSearch(matrix, sub){
         for (let j = 0; j < matrix[i].length; j++){
             if (matrix[i][j] == corner){
                 flag = true;
+
                 // as soon as we match corner, start checking adjacent values
                 // we have a match at matrix[i][j] with sub[k=0][l=0]
                 for (let k = 0; k < sub.length; k++){
                     for (let l = 0; l < sub[k].length; l++){
+                        
                         // only check if valid index in matrix
                         if (i+k < matrix.length &&  j+l < matrix[i].length){
                             if (sub[k][l] !== matrix[i+k][j+l]){
