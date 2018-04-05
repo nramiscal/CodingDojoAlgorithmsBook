@@ -45,7 +45,7 @@ function matrixSearch(matrix, sub){
                         }
                     }
                 }
-                // as soon as we find a perfect match, return true
+                // as soon as we find a complete match, return true
                 if (flag){
                     return true;
                 }
