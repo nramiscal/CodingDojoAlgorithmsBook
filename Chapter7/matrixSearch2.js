@@ -16,8 +16,8 @@ function matrixSearch2(matrix, sub){
     let corner = sub[0][0];
     let flag = false;
 
-    for (let i = 0; i < matrix.length; i++){
-        for (let j = 0; j < matrix[i].length; j++){
+    for (let i = 0; i <= matrix.length - sub.length; i++){
+        for (let j = 0; j <= matrix[i].length - sub[0].length; j++){
             if (matrix[i][j] == corner){
                 flag = true;
 
@@ -50,4 +50,5 @@ function matrixSearch2(matrix, sub){
 }
 
 
-console.log(matrixSearch2([[12, 34, 45, 56],[98, 87, 76, 65],[56, 67, 78, 89],[54, 43, 32, 21]], [[65, 78],[43, 32]]));
+console.log(matrixSearch2([[12, 34, 45, 56],[98, 87, 76, 65],[56, 67, 78, 89],[54, 43, 32, 21]], [[65, 78],[43, 32]])); // [-1, -1]
+console.log(matrixSearch2([[12, 34, 45, 56],[98, 87, 76, 65],[56, 67, 78, 89],[54, 43, 32, 21]], [[67, 78],[43, 32]])); // [2, 1]

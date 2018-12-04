@@ -22,8 +22,10 @@ function matrixSearch(matrix, sub){
     let corner = sub[0][0];
     let flag = false;
 
-    for (let i = 0; i < matrix.length; i++){
-        for (let j = 0; j < matrix[i].length; j++){
+    // only compare corner where sub would fit inside matrix
+    for (let i = 0; i <= matrix.length - sub.length; i++){
+        for (let j = 0; j <= matrix[i].length - sub[0].length; j++){
+            console.log([i,j]);
             if (matrix[i][j] == corner){
                 flag = true;
 
