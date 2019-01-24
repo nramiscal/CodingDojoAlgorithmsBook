@@ -32,94 +32,120 @@ Create method grow(newSize) that expands a CirQueue to a new given size.
 '''
 
 class CirQueue:
-    def __init__(self, cap):
+    def __init__(self, capacity):
         self._arr = []
-        self.cap = cap
-        self.headIdx = None
-        self.tailIdx = None
+        self.cap = capacity
+        self.head = 0 # starting index, next value to dequeue
+        self.size = 0
+        print("Creating queue with capacity", self.cap)
+        for i in range(capacity):
+            self._arr.append(None)
 
     def front(self):
-        if len(self._arr) == 0:
+        if self.size == 0:
+            print("The queue is empty")
             return
         else:
-            return self._arr[0]
+            print(f"Front of queue is {self._arr[self.head]}")
+            return self._arr[self.head]
 
     def isEmpty(self):
-        if len(self._arr) == 0:
+        if self.size == 0:
+            print("Queue is empty")
             return True
         else:
+            print("Queue is not empty")
             return False
 
-    def isFull(self):
-        if len(self._arr) == self.cap:
+    def full(self):
+        if self.size == self.cap:
+            print("Queue is full")
             return True
         else:
+            print("Queue is not full")
             return False
 
-    def size(self):
-        if len(self._arr) == 0:
-            return 0
-        else:
-            return self.tailIdx - self.headIdx
+    def length(self):
+        print("Length is", self.size)
+        return self.size
 
     def enqueue(self, val):
-        if len(self._arr) == 0:
-            self._arr.append(val)
-            print("Added", val)
-            self.headIdx = 0
-            self.tailIdx = 1
+        if self.size >= self.cap:
+            print(f"Queue is full. Cannot enqueue {val}.")
             return self
         else:
-            if self.tailIdx == self.cap:
-                print(f"Queue is full. Cannot enqueue {val}.")
-                return self
-            else:
-                self._arr.append(val)
-                print("Added", val)
-                self.tailIdx += 1
-                return self
+            print("Adding value", val, "to index", (self.head+self.size) % self.cap)
+            self._arr[(self.size+self.head) % self.cap] = val
+            self.size += 1
+            return self
 
     def dequeue(self):
-        if len(self._arr) == 0:
+        if self.size == 0:
             print("Queue is empty. Nothing to dequeue.")
-            return False
+            return
         else:
-            temp = self._arr[0]
-            for i in range(len(self._arr)-1):
-                self._arr[i] = self._arr[i+1]
-            self._arr.pop()
-            self.tailIdx -= 1
-            print(f"Dequeued {temp}")
+            temp = self._arr[self.head]
+            self.head = (self.head + 1) % self.cap
+            print("Dequeued", temp, "... Head is now at index", self.head)
+            self.size -= 1
             return temp
 
     def contains(self, val):
-        if val in self._arr:
-            return True
-        else:
-            return False
+        for i in range(self.size):
+            if self._arr[(self.head + i) % self.cap] == val:
+                print(f"Value {val} is in the queue")
+                return True
+        print(f"Value {val} is NOT in the queue")
+        return False
 
-    def display(self):
+    def displayArray(self):
         print(self._arr)
+
+    def displayQueue(self):
+        arr = []
+        for i in range(self.size):
+            arr.append(self._arr[(self.head + i) % self.cap])
+        print(f"Queue is now: {arr}")
 
     def grow(self, newSize):
         if newSize < self.cap:
-            print("Invalid size.")
+            print("Invalid size. Cannot shrink queue.")
         else:
-            self.cap = newSize
+            for i in range(newSize-self.cap):
+                self._arr.append(None)
+                for i in range(len(self._arr)-2, self.head-1, -1):
+                    self._arr[i+1] = self._arr[i]
+                self.cap += 1
+                self.head = (self.head + 1) % self.cap
 
 
+def multiDequeue(q,num):
+    for i in range(num):
+        q.dequeue()
 
-
-q = CirQueue(5)
-q.enqueue(1).enqueue(2).enqueue(3).enqueue(4).enqueue(5).enqueue(6).enqueue(7)
+q = CirQueue(10)
+q.enqueue(11).enqueue(22).enqueue(33).enqueue(44).enqueue(55).enqueue(66).enqueue(77).enqueue(88).enqueue(99).enqueue(100).enqueue(110).displayQueue()
 q.dequeue()
-q.dequeue()
-q.dequeue()
-q.display()
-q.enqueue(101).enqueue(102).enqueue(103).display()
-q.dequeue()
-q.dequeue()
-q.enqueue(104).enqueue(105).display()
-print(q.contains(100))
-q.grow(7)
-q.enqueue(106).enqueue(107).enqueue(108).display()
+q.displayQueue()
+q.enqueue(200).displayQueue()
+multiDequeue(q,3)
+q.displayQueue()
+q.enqueue(300).enqueue(400).enqueue(500).enqueue(600).displayQueue()
+multiDequeue(q,3)
+q.displayQueue()
+q.enqueue(700).enqueue(800).displayQueue()
+multiDequeue(q,5)
+q.displayQueue()
+q.enqueue(900).enqueue(1000).enqueue(1).enqueue(2).enqueue(3).enqueue(4).enqueue(5).displayQueue()
+print("*"*50)
+q.front()
+q.isEmpty()
+q.full()
+q.length()
+q.contains(500)
+q.contains(20000)
+q.grow(5)
+q.grow(12)
+q.displayArray()
+q.displayQueue()
+q.enqueue(5).enqueue(6).enqueue(7).displayQueue()
