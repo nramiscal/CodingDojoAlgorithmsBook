@@ -29,12 +29,12 @@ function IntersectSortedArrays(arr1, arr2){
     for (var key in dict){
         if (dict[key]['dict1'] < dict[key]['dict2']){
             for (var i = 0; i < dict[key]['dict1']; i++){
-                newarr.push(key);
+                newarr.push(parseInt(key, 10));
             }
         }
         else {
             for (var i = 0; i < dict[key]['dict2']; i++){
-                newarr.push(key);
+                newarr.push(parseInt(key, 10));
             }
         }
     }
