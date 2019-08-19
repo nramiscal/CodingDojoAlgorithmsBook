@@ -33,8 +33,7 @@ class SLL:
     def removeNegatives(self):
 
         while self.head != None and self.head.val < 0:
-            if self.head.val < 0:
-                self.head = self.head.next;
+            self.head = self.head.next;
 
         if not self.head:
             return self
